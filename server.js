@@ -71,7 +71,6 @@ io.on('connection', (s) => {
   });
 });
 
-// batched position broadcast, ~15 Hz
 setInterval(() => {
   if (players.size < 2) return;
   io.volatile.emit('state', [...players.values()].map((p) => [p.id, p.x, p.y, p.z, p.ry, p.a]));
